@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @bubblecup %>
+
+<div>
+  <%= link_to "Edit this bubblecup", edit_bubblecup_path(@bubblecup) %> |
+  <%= link_to "Back to bubblecups", bubblecups_path %>
+
+  <%= button_to "Destroy this bubblecup", @bubblecup, method: :delete %>
+</div>

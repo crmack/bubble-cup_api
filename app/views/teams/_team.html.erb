@@ -1,0 +1,26 @@
+<div id="<%= dom_id team %>">
+  <p>
+    <strong>Name:</strong>
+    <%= team.name %>
+  </p>
+
+  <p>
+    <strong>Captain:</strong>
+    <%= team.captain_id %>
+  </p>
+
+  <p>
+    <strong>Bubble cup:</strong>
+    <%= team.bubble_cup_id %>
+  </p>
+
+  <p>
+    <strong>Players:</strong>
+    <% team.players.each do |player| %>
+      <p>
+        <%= player.name %>
+      </p>
+    <% end %>
+  </p>
+
+</div>

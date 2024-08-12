@@ -1,0 +1,37 @@
+<%= form_with(model: team) do |form| %>
+  <% if team.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+        <% team.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :captain, style: "display: block" %>
+    <%= form.select :captain_id, options_for_select(Player.all().map {|c| [ c.name, c.id ] }), {include_blank: false}, { :class => 'form-control'} %>
+  </div>
+
+  <div>
+    <%= form.label :player_ids, style: "display: block" %>
+    <%= form.select :player_ids, options_for_select(Player.all().map {|c| [ c.name, c.id ] }), {:include_hidden => false, include_blank: false, :multiple => true, :size => 20}, { :class => 'form-control'} %>
+  </div>
+
+  <div>
+    <%= form.label :bubble_cup_id, style: "display: block" %>
+    <%= form.select :bubble_cup_id, options_for_select(Bubblecup.order(:year).map {|c| [ c.year, c.id ]}), {include_blank: false}, { :class => 'form-control'} %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

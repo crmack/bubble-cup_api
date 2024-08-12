@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Event instances</h1>
+
+<div id="event_instances">
+  <% @event_instances.each do |event_instance| %>
+    <%= render event_instance %>
+    <p>
+      <%= link_to "Show this event instance", event_instance %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New event instance", new_event_instance_path %>

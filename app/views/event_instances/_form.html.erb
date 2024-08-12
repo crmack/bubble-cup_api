@@ -1,0 +1,27 @@
+<%= form_with(model: event_instance) do |form| %>
+  <% if event_instance.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(event_instance.errors.count, "error") %> prohibited this event_instance from being saved:</h2>
+
+      <ul>
+        <% event_instance.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :event_id, style: "display: block" %>
+    <%= form.text_field :event_id %>
+  </div>
+
+  <div>
+    <%= form.label :is_tiebreaker, style: "display: block" %>
+    <%= form.check_box :is_tiebreaker %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

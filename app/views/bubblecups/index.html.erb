@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Bubblecups</h1>
+
+<div id="bubblecups">
+  <% @bubblecups.each do |bubblecup| %>
+    <%= render bubblecup %>
+    <p>
+      <%= link_to "Show this bubblecup", bubblecup %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New bubblecup", new_bubblecup_path %>
